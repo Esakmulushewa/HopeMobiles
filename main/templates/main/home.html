@@ -1,0 +1,123 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{%block title%} Home {% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="container mt-3">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active hero-slide"
+            style="background-image: url('{% static 'main/img/hero-img1.jpg' %}');">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>ባሉበት ቦታ ይደውሉ</h1>
+                <p>Hope Mobiles ያሉበት ድረስ በመምጣት አገልግሎት ይሰጣል</p>
+                <a href="#homepage-search" class="btn  btn-outline-light">ስልክዎን ያግኙ</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item hero-slide" style="background-image: url('{% static 'main/img/hero-img2.jpg' %}');">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>ሁሉም አይነት ስክሪን</h1>
+                <p>ባለሞያዎቻችን በሁሉም አይነት ስክሪን ትገና የተካኑ ናቸው</p>
+                <a href="#homepage-search" class="btn  btn-outline-light">ስልክዎን ያግኙ</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item hero-slide" style="background-image: url('{% static 'main/img/hero-img1.jpg' %}');">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>ተመጣጣኝ ዋጋ</h1>
+                <p>ደንበኛን ያማከለ ተመጣጣኝ ክፈያ</p>
+                <a href="#homepage-search" class="btn  btn-outline-light">ስልክዎን ያግኙ</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+</div>
+
+<div class="container text-center my-5">
+
+    <!-- Title -->
+    <h2 class="mb-4">ስልክዎ የትኛው ነው?</h2>
+
+    <!-- Buttons row -->
+    <div class="row justify-content-center g-3">
+
+        <!-- Samsung Button -->
+        <div class="col-12 col-md-5">
+            <a href="{% url 'phone_type' 'samsung' %}" class="btn btn-dark border-dark rounded w-100 py-3 fs-5">
+                Samsung
+            </a>
+        </div>
+
+        <!-- iPhone Button -->
+        <div class="col-12 col-md-5">
+            <a href="{% url 'phone_type' 'iPhone' %}" class="btn btn-light border-dark rounded w-100 py-3 fs-5">
+                iPhone
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container my-5">
+
+    <h3 class="text-center" id="homepage-search">የእርሶን ስልክ ይፈልጉ</h3>
+    <form class="d-flex home-search mb-4" role="search" method="post" action="/results">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" name="query">
+    </form>
+    <div class="row row-cs">
+        {% for screen in screens %}
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'details' screen.id %}">
+                <div class="card">
+
+                    {% if screen.image %}
+                    <img src="{{ screen.image.url }}" class="card-img-top" alt="{{ screen.name }}">
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ screen.phone_name }}</h5>
+                        <p class="card-text">ብር {{ screen.price }}</p>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+        {% empty %}
+        <p>No screens available.</p>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

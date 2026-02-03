@@ -1,0 +1,78 @@
+{% extends 'main/base.html' %}
+<!-- <h1>{{ screen.phone_name }}</h1>
+<p>{{ screen.phone_type.phone_type }}</p>
+<p>ETB {{ screen.price }}</p>
+<img src="{{ screen.image.url }}"> -->
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+
+                <div class="row g-0">
+
+                    <!-- Image -->
+                    <div class="col-md-5">
+                        <img src="{{ screen.image.url }}" class="img-fluid h-100 w-100 rounded-start"
+                            style="object-fit: cover;" alt="{{ screen.phone_name }}">
+                    </div>
+
+                    <!-- Info -->
+                    <div class="col-md-7">
+                        <div class="card-body p-4">
+
+                            <h3 class="card-title mb-2">
+                                {{ screen.phone_name }}
+                            </h3>
+
+                            <p class="text-muted mb-3">
+                                {{ screen.type }} ስክሪን ጥገና
+                            </p>
+
+                            <h4 class="text-dark mb-4">
+                                ETB {{ screen.price }}
+                            </h4>
+
+                            <!-- Order Form -->
+                            <form method="post">
+                                {% csrf_token %}
+
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        ተራ ማስያዝ ከፈለጉ የስልክ ቁጥሮን ከስር ያስቀምጡልን
+                                    </label>
+                                    <input type="tel" name="phone" class="form-control" placeholder="09XXXXXXXX"
+                                        required>
+                                </div>
+
+                                <button type="submit" class="btn btn-dark w-100 py-2">
+ተራ ያስይዙ                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- <form method="POST">
+    {% csrf_token %}
+    <p class="fw-bold text-dark fst-italic mb-2">if you want to place an order, put your phone number below.
+    </p>
+    <div class="d-flex align-items-center w-auto mt-0">
+        <input name="ph_no" type="tel" class="form-control" placeholder="123-4567-8901" required
+            style="width: 50%; margin-right: 10px;" />
+
+        <button class="btn btn-success ms-3"> Place an order </button>
+    </div>
+</form> -->
+
+{% endblock %}

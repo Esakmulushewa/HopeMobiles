@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h1 class="mb-2 text-center">የስክሪኖች</h1>
+<form class="d-flex mb-4 home-search" style="width: 80%; margin:auto;" role="search" method="post" action="/results">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Search" name="query">
+</form>
+
+<h1 class="mb-2 text-center">የsamsung ስክሪኖች</h1>
+<div class="row row-cs">
+    {% for screen in samsungScreens %}
+    <div class="col-md-4 mb-4">
+        <a href="{% url 'details' screen.id %}">
+            <div class="card">
+
+                {% if screen.image %}
+                <img src="{{ screen.image.url }}" class="card-img-top" alt="{{ screen.name }}">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ screen.phone_name }}</h5>
+                    <p class="card-text">ብር {{ screen.price }}</p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    {% empty %}
+    <p>No screens available.</p>
+    {% endfor %}
+</div>
+
+<h1 class="mb-2 text-center">የiPhone ስክሪኖች</h1>
+<div class="row row-cs">
+    {% for screen in iPhoneScreens %}
+    <div class="col-md-4 mb-4">
+        <a href="{% url 'details' screen.id %}">
+            <div class="card">
+
+                {% if screen.image %}
+                <img src="{{ screen.image.url }}" class="card-img-top" alt="{{ screen.name }}">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ screen.phone_name }}</h5>
+                    <p class="card-text">ብር {{ screen.price }}</p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    {% empty %}
+    <p>No screens available.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

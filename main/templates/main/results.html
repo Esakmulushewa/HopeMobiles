@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<h3 class="mb-4">
+    Search results for "{{ query }}"
+</h3>
+
+<div class="row">
+    {% for screen in results %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+
+            <img src="{{ screen.image.url }}" class="card-img-top">
+
+            <div class="card-body">
+                <h5>{{ screen.phone_name }}</h5>
+                <p>{{ screen.phone_type.phone_type }}</p>
+                <p>ETB {{ screen.price }}</p>
+
+                <a href="{% url 'details' screen.id %}" class="btn btn-outline-dark">
+                    View Details
+                </a>
+            </div>
+
+        </div>
+    </div>
+    {% empty %}
+    <p>No results found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

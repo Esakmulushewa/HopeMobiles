@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container my-5">
+
+    <h1 class="mb-2 text-center">የ{{type}} ስክሪኖች</h1>
+    <form class="d-flex mb-4 home-search" role="search" method="post" action="/results">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" name="query">
+    </form>
+    <div class="row">
+        <div class="row row-cs">
+            {% for screen in screens %}
+            <div class="col-md-4 mb-4">
+                <a href="{% url 'details' screen.id %}">
+                    <div class="card h-100">
+
+                        {% if screen.image %}
+                        <img src="{{ screen.image.url }}" class="card-img-top" alt="{{ screen.name }}">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ screen.phone_name }}</h5>
+                            <p class="card-text">ብር {{ screen.price }}</p>
+                            <button class="btn btn-dark order-btn">ይዘዙ</button>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+            <p>No screens available.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+    {% endblock %}
