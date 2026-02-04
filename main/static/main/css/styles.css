@@ -9,6 +9,7 @@ body {
 .nav-link {
     color: black !important;
     padding: 0 25px !important;
+    font-size: 20px !important;
 }
 
 .hero-content p {
@@ -19,6 +20,12 @@ body {
 
 .hero-content h1 {
     text-align: center !important;
+    letter-spacing: 4px;
+}
+
+.hero-content a {
+    padding: 5px;
+    margin: 5px;
 }
 
 .home-search input {
@@ -130,6 +137,16 @@ nav {
 }
 
 @media (max-width: 600px) {
+
+    .hero-content h1 {
+        font-size: 30px !important;
+
+    }
+
+    .hero-content p {
+        font-size: 20px !important;
+    }
+
     .card {
         justify-content: center !important;
         height: auto !important;
