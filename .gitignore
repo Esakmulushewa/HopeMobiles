@@ -1,32 +1,6 @@
-# Python
-pycache/
-*.py[cod]
-*.pyo
-*.pyd
-
-# Django
-*.log
-local_settings.py
-media/
-
-# Virtual environment
-venv/
-env/
-.venv/
 
 # Environment variables
 .env
 
 # Static files
 staticfiles/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDEs
-.vscode/
-.idea/
-
-# Migrations cache
-*.sqlite3
