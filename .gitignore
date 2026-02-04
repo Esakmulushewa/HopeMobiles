@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 # Environment variables
 .env
 
 # Static files
 staticfiles/
+=======
+/staticfiles/
+.env
+>>>>>>> be52a72dd52e5e65e1a0bf0314a7cc63165925dd
