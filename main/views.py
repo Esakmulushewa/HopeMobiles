@@ -44,7 +44,7 @@ def screens(request):
 def details(request, screen_id):
     screen = get_object_or_404(Screen, id=screen_id)
     if request.method == "POST":
-        phoneNO = request.POST.get("ph_no")
+        phoneNO = request.POST.get("phone")
         phone_url = request.build_absolute_uri(f"/screens/{screen.id}")
         send_telegram_message(screen, phoneNO, phone_url)
         messages.success(request, "ትዕዛዝዎን ተቀብለናል። ባለሞያዎቻችን ከትንሽ ደቂቃዎች በኋላ ይደውሉሎታል።")

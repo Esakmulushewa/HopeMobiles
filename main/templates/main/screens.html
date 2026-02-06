@@ -1,6 +1,6 @@
 {% extends 'main/base.html' %}
 {% block content %}
-<h1 class="mb-2 text-center">የስክሪኖች</h1>
+<h1 class="mb-2 text-center">ስክሪኖች</h1>
 <form class="d-flex mb-4 home-search" style="width: 80%; margin:auto;" role="search" method="post" action="/results">
     {% csrf_token %}
     <input class="form-control me-2" type="search" placeholder="Search" name="query">
@@ -18,8 +18,9 @@
                 {% endif %}
 
                 <div class="card-body">
-                    <h5 class="card-title">{{ screen.phone_name }}</h5>
+                    <h5 class="card-title">{{ screen.phone_name }} ስክሪን</h5>
                     <p class="card-text">ብር {{ screen.price }}</p>
+                    <p class="card-text">⏱ 30-40 ደቂቃ</p>
                 </div>
 
             </div>

@@ -26,8 +26,8 @@
             <div class="container hero-content">
                 <h1>ፈጣንና አስተማማኝ የስክሪን ጥገና በአዲስ አበባ!</h1>
                 <p>የSamsung እና iPhone ስክሪን ጥገና & ቅየራ ያሉበት ድረስ እናቀርባለን </p>
-                <a href="#homepage-search" class="btn  btn-outline-light">ስልክዎን ይፈልጉ</a>
-                <a href="#homepage-search" class="btn  btn-outline-light">ይደውሉ</a>
+                <a href="#homepage-search" class="btn  btn-outline-light hero-btn">ስልክዎን ይፈልጉ</a>
+                <a href="#homepage-search" class="btn  btn-outline-light hero-btn">ይደውሉ</a>
 
             </div>
         </div>
@@ -38,8 +38,8 @@
             <div class="container hero-content">
                 <h1>ሁሉም አይነት ስክሪን</h1>
                 <p>ባለሞያዎቻችን በሁሉም አይነት ስክሪን ትገና የተካኑ ናቸው</p>
-                <a href="#homepage-search" class="btn  btn-outline-light">ስልክዎን ያግኙ</a>
-                <a href="#homepage-search" class="btn  btn-outline-light">ይደውሉ</a>
+                <a href="#homepage-search" class="btn  btn-outline-light hero-btn">ስልክዎን ያግኙ</a>
+                <a href="#homepage-search" class="btn  btn-outline-light hero-btn">ይደውሉ</a>
 
             </div>
         </div>
@@ -48,10 +48,10 @@
         <div class="carousel-item hero-slide" style="background-image: url('{% static 'main/img/hero-img1.jpg' %}');">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1>ተመጣጣኝ ዋጋ</h1>
-                <p>ደንበኛን ያማከለ ተመጣጣኝ ክፈያ</p>
-                <a href="#homepage-search" class="btn  btn-outline-light">ስልክዎን ያግኙ</a>
-                <a href="#homepage-search" class="btn  btn-outline-light">ይደውሉ</a>
+                <h1>በ30 ሰከንድ ይዘዙን፣ በደቂቃዎች ውስጥ ጠግነን እንጨርሳለን</h1>
+                <p>በፍጥነት እና በጥራት የታወቀ አገልግሎት</p>
+                <a href="#homepage-search" class="btn  btn-outline-light hero-btn">ስልክዎን ያግኙ</a>
+                <a href="#homepage-search" class="btn  btn-outline-light hero-btn">ይደውሉ</a>
 
             </div>
         </div>
@@ -79,14 +79,14 @@
 
         <!-- Samsung Button -->
         <div class="col-12 col-md-5">
-            <a href="{% url 'phone_type' 'samsung' %}" class="btn btn-dark border-dark rounded w-100 py-3 fs-5">
+            <a href="{% url 'phone_type' 'samsung' %}" class=" btn btn-dark border-dark rounded w-100 cat-btn fs-5">
                 Samsung
             </a>
         </div>
 
         <!-- iPhone Button -->
         <div class="col-12 col-md-5">
-            <a href="{% url 'phone_type' 'iPhone' %}" class="btn btn-light border-dark rounded w-100 py-3 fs-5">
+            <a href="{% url 'phone_type' 'iPhone' %}" class="btn btn-dark border-dark rounded w-100 cat-btn fs-5">
                 iPhone
             </a>
         </div>
@@ -113,9 +113,9 @@
                     {% endif %}
 
                     <div class="card-body">
-                        <h5 class="card-title">{{ screen.phone_name }}</h5>
+                        <h5 class="card-title">{{ screen.phone_name }} ስክሪን</h5>
                         <p class="card-text">ብር {{ screen.price }}</p>
-                        <p class="card-text">⏱ 1-1.5 ሰዐት</p>
+                        <p class="card-text">⏱ 30-40 ደቂቃ</p>
                     </div>
 
                 </div>
