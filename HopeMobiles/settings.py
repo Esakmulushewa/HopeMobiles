@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["www.hopescreen.et", "hopescreen.et"]
 
-
+#www.hopescreen.et", "hopescreen.et
 # Application definition
 
 INSTALLED_APPS = [
